@@ -1,10 +1,9 @@
 body {
     display: flex; 
-    align-items: center;
+    align-items: center; 
     flex-direction: column; 
-    justify-content: center;
-    margin: 0 auto;
     min-height: 100vh;
+    padding: 20px;
 }
 
 .container {
@@ -23,6 +22,15 @@ body {
     border-radius: 20px;
 }
 
+.form-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    z-index: 9;
+  }
+
+
 .closebtn {
     margin-bottom: 15px;
     color: #256bef;
@@ -37,4 +45,21 @@ body {
   
   .closebtn:hover {
     color: rgb(209, 57, 57);
+  }
+
+  .add-btn {
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    
+    bottom: 0px;
+    justify-content: center;
+  }
+
+  .contractList {
+    width: 80%;
+    padding: 20px;
+    color: white;
+    border-radius: 15px;
+    box-shadow: 0px 2px 15px 0px rgba(167, 167, 167, 0.4);
   }
