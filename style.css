@@ -3,11 +3,16 @@ body {
     align-items: center; 
     flex-direction: column; 
     min-height: 100vh;
-    padding: 20px;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
 }
 
-li{
-    text-decoration-color: black;
+#h4Id{
+    font-family: "Montserrat";
+    font-weight: 700;
+    /* cursor: pointer; */
 }
 
 .container {
@@ -15,9 +20,26 @@ li{
     align-items: center;
     justify-content: center;
     padding: 20px;
+    font-family: "Montserrat";
+    font-weight: 200;
     /* position: relative;
     z-index: -1; */
+}
 
+#navigation {
+    width: 100%;
+    height: 50px;
+    color: #fff;
+    align-items: center; 
+    text-align: center;
+    display: flex; 
+    cursor: default;
+    flex-direction: column; 
+    position:fixed;
+    z-index:100;
+    top: 0;
+    padding: 10px;
+    background-color: #256bef;
 }
 
 .formSize {
@@ -44,7 +66,7 @@ li{
     float: right;
     font-size: 15px;
     line-height: 20px;
-    cursor: pointer;
+    /* cursor: pointer; */
     transition: 0.3s;
     padding: 5px;
   }
@@ -60,13 +82,6 @@ li{
     justify-content: center;
   }
 
-  .tmp-btn {
-    cursor: pointer;
-    position: fixed;
-    right: 0px;
-    bottom: 0px;
-    justify-content: center;
-  }
 
   .contractList {
     width: 80%;
@@ -74,6 +89,17 @@ li{
     color: black;
     border-radius: 15px;
     text-align: left;
+    font-family: "Montserrat";
+    cursor: auto; 
     text-decoration-color: black;
     box-shadow: 0px 2px 15px 0px rgba(167, 167, 167, 0.4);
+  }
+
+  .whole-screen {
+    align-items: center; 
+    align-content: center;
+    flex-direction: row; 
+    padding-top: 70px;
+    width: 80%;
+    /* margin-top: 100; */
   }

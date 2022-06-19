@@ -1,5 +1,12 @@
-// window.onload = loadData;
+// import dateFormat from 'dateformat';
 
+window.onload = checkLisEmpty
+
+var allOfThem = [];
+var html_ = "";
+
+
+// for opening and closing form
 function openForm() {
   document.getElementById("myForm").style.display = "block";
   document.getElementById("addBtn").style.display = "none";
@@ -9,61 +16,53 @@ function closeForm() {
   document.getElementById("addBtn").style.display = "block";
 }
 
-// const listContracts = document.getElementById('allContracts');
-var allOfThem = [];
 
+// for creating contract
 function createFunc() {
 
-    const clientname = document.getElementById('clientname').value;
-    const servicename = document.getElementById('service_name').value;
+    var clientname = document.getElementById('clientname').value;
+    var servicename = document.getElementById('service_name').value;
+    var servicecost = document.getElementById('servicecost').value;
+    var date1 = document.getElementById('datePicker1').value;
+    var date2 = document.getElementById('datePicker2').value;
 
-    const entry = document.createElement('ul');
+    // var _picker = Litepicker({
+    //     element: date1,
+    //     format: 'DD/MMMM/YYYY'
+    // });
 
-    entry.appendChild(document.createTextNode(clientname));
-    listContracts.appendChild(entry);
-
-
-    // listContracts.appendChild(entry);
-
-    console.log("Added");
-
-    console.log(listContracts);
-}   
-
-function tmpFunc() {
-
-    const clientname = document.getElementById('clientname').value;
-    const servicename = document.getElementById('service_name').value;
-
-    const entry = document.createElement('div');
-
-    entry.appendChild(document.createTextNode("Add"));
-    document.getElementById('allContracts').appendChild(entry);
-
+    // var date1 = new Date("01/01/2022");
+    // var date2 = new Date("06/19/2022");
+    // console.log(formatDate(date1));
+    // console.log(formatDate(date2));
 
     allOfThem.push({
-        _client: "Name",
-        _description: "Here"
+        _client: clientname,
+        _description: servicename,
+        _cost: servicecost,
+        _startDate: date1,
+        _endDate: date2,
+        _period: monthDiff(date1, date2),
     });
 
-    console.log("Added");
+    html_ += '<div class="contractList mb-4"><div class="d-flex justify-content-between"><div><b>' + clientname +'</b></div> <div>'+ monthDiff(date1, date2)+' Months </div></div></div>';
+
+    document.getElementById('all-contracts').innerHTML = html_;
+    
+    document.getElementById('cotract-fields').reset();
+    closeForm();
 
     console.log(allOfThem);
-}  
-var temperatures = [59.2, 60.1, 63, 65, 62];
-var html_ = "";
+}   
 
-function loadData(){
-    temperatures.map(function (t, i) {
-        return 'The temperature at ' + i + ' was ' + t
-    });
-    html_ += '<div class="contractList mb-4">' + "another" + '</div>';
-    
-    document.getElementById('all-contracts').innerHTML = html_
-    // '<li>' + temperatures.join('</li><li>') + '</li>'
+
+function monthDiff(dateFrom, dateTo) {
+    return dateTo.split("-")[1] - dateFrom.split("-")[1] + 
+      (12 * (dateTo.split("-")[0] - dateFrom.split("-")[0]))
 }
+function checkLisEmpty(){
+    if (allOfThem.length ==0){
+        document.getElementById('all-contracts').innerHTML = '<div><h1>You do not have any contracts yet!</h1><h1></h1><h1> </h1><img src="assets/Contract.png" width="300" height="300"></img> </div>'
+    }
 
-function testFunc(){
-    temperatures.push(40.1);
-    loadData();
 }
